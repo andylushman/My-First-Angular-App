@@ -17,10 +17,20 @@
 if you want to change a property such as html element or directive or component use property binding
 don't mix the two -->
 <!-- <p [innerText]= "allowNewServer"></p> -->
-<p>{{ serverCreationStatus }}</p>
-<p>{{ allowNewServer }}</p>
-<hr>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<!-- <p>{{ allowNewServer }}</p> -->
 
+
+<p *ngIf="serverCreated, else noServer">Server was created, server name is my {{ serverName }}</p>
+
+<ng-template #noServer>
+    <p>No server was created!</p>
+</ng-template>
+
+
+
+
+<hr>
 <label for="Username"></label>
 <input 
     type="text"
@@ -35,5 +45,4 @@ don't mix the two -->
     (click)="resetUserName()">Reset Username
 </button>
 
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
