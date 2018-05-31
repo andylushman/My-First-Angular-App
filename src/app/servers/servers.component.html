@@ -1,2 +1,39 @@
+<label>Server Name</label>
+<!-- <input 
+    type="text" 
+    class="form-control"
+    (input)="onUpdateServerName($event)"> -->
+<input 
+    type="text" 
+    class="form-control"
+    [(ngModel)]="serverName">
+    <!-- Two way data-binding binds data in both ways. In this example above, serverName is (1)prepopulated and (2)changes on input. -->    
+<!-- <p>{{ serverName }}</p> -->
+<button 
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">Add Server</button>
+<!-- if you want to output something to template link string use string interplotion
+if you want to change a property such as html element or directive or component use property binding
+don't mix the two -->
+<!-- <p [innerText]= "allowNewServer"></p> -->
+<p>{{ serverCreationStatus }}</p>
+<p>{{ allowNewServer }}</p>
+<hr>
+
+<label for="Username"></label>
+<input 
+    type="text"
+    class="form-control"
+    [(ngModel)]="userName">
+
+<p>{{ userName }}</p>
+
+<button 
+    class="btn btn-primary"
+    [disabled]="userName === ''"
+    (click)="resetUserName()">Reset Username
+</button>
+
 <app-server></app-server>
 <app-server></app-server>

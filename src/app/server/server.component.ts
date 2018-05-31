@@ -5,5 +5,10 @@ import { Component } from "@angular/core";
     templateUrl: './server.component.html'
 })
 export class ServerComponent {
+    serverID: number = 10; //or written as serverID = 10; the type can be implied.
+    serverStatus: string = 'offline';
 
+    getServerStatus() {
+        return this.serverStatus;
+    }
 }
